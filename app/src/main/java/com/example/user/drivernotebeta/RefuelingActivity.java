@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.InputType;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -52,6 +53,21 @@ public class RefuelingActivity extends AppCompatActivity implements View.OnClick
         buttonSave.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //Проверяем если в поля "Заправлено" и "Цена за 1 литр" введены какие-либо значения и если нет, то выдаем предупреждения
+                //Переменная warning1 вводится для проверки поля "Заправлено"
+                String warning1 = editTextL.getText().toString();
+                //Переменная warning2 вводится для проверки поля "Цена за 1 литр"
+                String warning2 = editTextR.getText().toString();
+                String msgtext = "Введите значение";
+                if (TextUtils.isEmpty(warning1)) {
+                    //Собственно само сообщение
+                    editTextL.setError(msgtext);
+                    return;
+                }
+                if (TextUtils.isEmpty(warning2)) {
+                    editTextR.setError(msgtext);
+                    return;
+                }
 
                 // читаем EditText и заполняем переменные числами
                 num1 = Float.parseFloat( editTextL.getText().toString() );

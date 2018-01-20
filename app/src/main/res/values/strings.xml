@@ -2,10 +2,6 @@
     <string name="app_name">DriverNoteGamma</string>
     <string name="select_date">Выберите дату</string>
     <string name="km">км</string>
-    <string-array name="tests">
-        <item>Java</item>
-        <item>Android</item>
-        <item>Windows</item>
-    </string-array>
+
 
 </resources>
